@@ -20,7 +20,11 @@ const ScopeForm: React.FC<ScopeFormProps> = ({ onSubmit }) => {
 
   const handleEndpointChange = (index: number, field: keyof Endpoint, value: string | number) => {
     const newEndpoints = [...endpoints];
-    newEndpoints[index][field] = field === 'cost' ? parseFloat(value as string) || 0 : value;
+    if (field === 'cost') {
+      newEndpoints[index].cost = parseFloat(value as string) || 0;
+    } else {
+      newEndpoints[index].path = value as string;
+    }
     setEndpoints(newEndpoints);
   };
 

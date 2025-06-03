@@ -82,7 +82,11 @@ const Dashboard: React.FC = () => {
 
   const handleUpdateNewScopeEndpoint = (index: number, field: keyof Endpoint, value: string | number) => {
     const updatedEndpoints = [...newScopeEndpoints];
-    updatedEndpoints[index][field] = value;
+    if (field === 'cost') {
+      updatedEndpoints[index][field] = value as number;
+    } else if (field === 'path') {
+      updatedEndpoints[index][field] = value as string;
+    }
     setNewScopeEndpoints(updatedEndpoints);
   };
 
