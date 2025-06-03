@@ -1,3 +1,5 @@
+"use client";
+
 // pages/dashboard.tsx
 import React, { useState } from 'react';
 
@@ -93,7 +95,6 @@ const Dashboard: React.FC = () => {
   const handleRemoveEndpointFromNewScope = (index: number) => {
     setNewScopeEndpoints(newScopeEndpoints.filter((_, i) => i !== index));
   };
-
 
   return (
     <div className="container mx-auto p-4">
@@ -211,4 +212,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard; 
