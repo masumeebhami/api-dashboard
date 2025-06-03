@@ -80,7 +80,7 @@ const Dashboard: React.FC = () => {
     setNewScopeEndpoints([...newScopeEndpoints, { path: '', cost: 0 }]);
   };
 
-  const handleUpdateNewScopeEndpoint = (index: number, field: keyof Endpoint, value: any) => {
+  const handleUpdateNewScopeEndpoint = (index: number, field: keyof Endpoint, value: string | number) => {
     const updatedEndpoints = [...newScopeEndpoints];
     updatedEndpoints[index][field] = value;
     setNewScopeEndpoints(updatedEndpoints);
@@ -88,23 +88,6 @@ const Dashboard: React.FC = () => {
 
   const handleRemoveEndpointFromNewScope = (index: number) => {
     setNewScopeEndpoints(newScopeEndpoints.filter((_, i) => i !== index));
-  };
-
-  const handleAddEndpointToEditingScope = () => {
-    if (!editingScope) return;
-    setEditingScope({ ...editingScope, endpoints: [...editingScope.endpoints, { path: '', cost: 0 }] });
-  };
-
-  const handleUpdateEditingScopeEndpoint = (index: number, field: keyof Endpoint, value: any) => {
-    if (!editingScope) return;
-    const updatedEndpoints = [...editingScope.endpoints];
-    updatedEndpoints[index][field] = value;
-    setEditingScope({ ...editingScope, endpoints: updatedEndpoints });
-  };
-
-  const handleRemoveEndpointFromEditingScope = (index: number) => {
-    if (!editingScope) return;
-    setEditingScope({ ...editingScope, endpoints: editingScope.endpoints.filter((_, i) => i !== index) });
   };
 
 
